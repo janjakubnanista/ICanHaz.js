@@ -72,17 +72,12 @@ More info at: http://icanhazjs.com
             var i,
                 l,
                 scripts = document.getElementsByTagName('script'),
-                script,
-                trash = [];
+                script;
             for (i = 0, l = scripts.length; i < l; i++) {
                 script = scripts[i];
                 if (script && script.innerHTML && script.id && (script.type === "text/html" || script.type === "text/x-icanhaz")) {
                     ich.addTemplate(script.id, trim(script.innerHTML));
-                    trash.unshift(script);
                 }
-            }
-            for (i = 0, l = trash.length; i < l; i++) {
-                trash[i].parentNode.removeChild(trash[i]);
             }
         }
     };
